@@ -1,4 +1,4 @@
-# Henry [Last Name] | Engineering Portfolio
+# Henry Perda | Engineering Portfolio
 
 Engineering student at Northeastern University focused on flight hardware, composites, and design for extreme environments.
 
