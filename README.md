@@ -7,23 +7,24 @@ Mechanical Engineering at Northeastern University
 ---
 
 ## Mortar-Launched UAV
-**Founder and Lead** · [dates]
+**Founder and Lead Engineer** · January 2026 - present
 
-A drone that survives a mortar launch (90 m/s in a fraction of a second), deploys spring-loaded wings mid-air, and glides to a precise landing zone. Designed within a 50 mm tube, a $150 per-drone cost, and goals of 1.5 km range, a 1m^2 landing circle, and a 0.5 kg payload. After our PLA frame failed by buckling under real launch loads, I redesigned it in carbon fiber composite, roughly 50x stiffer for a small weight penalty. Also built a custom flight controller.
+A drone that survives a mortar launch, deploys spring-loaded wings mid-air, and glides to a precise landing zone. Designed within a 50 mm tube, a $150 per-drone cost, and goals of 1.5 km range, a 1m^2 landing circle, and a 0.5 kg payload. After our PLA frame failed by buckling under real launch loads, I redesigned it in carbon fiber composite, roughly 50x stiffer for a small weight penalty. Also built a custom flight controller.
 
 | | |
 |:---:|:---:|
 | <img src="images/uav-cad-stowed.png" width="350"> | <img src="images/uav-cad-deployed.png" width="350"> |
 | *CAD with wings stowed for launch* | *CAD with wings deployed* |
 | <img src="images/uav-hinge-cad.png" width="350"> | <img src="images/uav-hinge-real.jpg" width="350"> |
-| *[Caption: rear hinge mechanism CAD]* | *[Caption: rear hinge assembled]* |
+| *rear hinge mechanism * | *[Caption: rear hinge assembled]* |
+
 
 ---
 
 ## NUaero Airbrakes
-**[Role]** · [dates]
+**Engineer** · January 2026 - July 2026
 
-Airbrakes module for an L2 rocket that actively controls drag to hit a target apogee of [X ft]. [One sentence on your contribution and result.]
+Airbrakes module for an L2 rocket that actively controls drag to hit a programmable target apogee. I contributed to the design and manufacturing of the airbrakes module as well as owning designs and analysis on the servo housing and the electronics bay. I also participated in much of the rockets assembly process. 
 
 | | |
 |:---:|:---:|
@@ -35,9 +36,9 @@ Airbrakes module for an L2 rocket that actively controls drag to hit a target ap
 ---
 
 ## NUaero Liquid Rocket Engine Quick Disconnect
-**[Role]** · [dates]
+**Structures Engineer** · September 2026 - Present 
 
-Quick disconnect for the team's LOX/kerosene engine. [One sentence on your contribution and key challenge.]
+Below is the design for the quick disconnect for the team's LOX/kerosene engine. The purpose of the QD is to supply continuos pressure to the fuel tanks in the rocket to compensate for cryogenic boiloff in the loading process the mechanism is built to detach the fuel lines from the rocket seconds before liftoff. 
 
 | | |
 |:---:|:---:|
@@ -46,9 +47,3 @@ Quick disconnect for the team's LOX/kerosene engine. [One sentence on your contr
 
 ---
 
-## Outreach
-**Roxbury Robotics Volunteer** · Afterschool program introducing elementary students to robotics, giving kids with fewer resources access to engineering.
-
----
-
-**Skills:** [SolidWorks, ANSYS/CFD, composite layup, machining, 3D printing, Python, flight controllers]
