@@ -6,7 +6,7 @@
 
 ### Mechanical Engineering · Northeastern University
 
-**Flight hardware · Composites · Mechanism design · Design for extreme environments**
+**Mechnical Engineering Major - Minor in Aerospace Engineering**
 
 <a href="mailto:perda.h@northeastern.edu"><img src="https://img.shields.io/badge/Email-333333?style=for-the-badge&logo=gmail&logoColor=white"></a>
 <a href="https://www.linkedin.com/in/henry-perda-3b7b4a379"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a>
@@ -18,8 +18,7 @@
 
 ## About
 
-I design hardware that has to survive real loads, from a drone fired out of a mortar tube to machined airbrakes on a high power rocket to fluid hardware for a LOX/kerosene engine. My work spans the full loop: requirements, CAD, analysis, manufacturing, test, and redesign when things break. [One or two sentences on what kind of role you're looking for, e.g. "Seeking Spring 2027 co-op roles in aerospace design and manufacturing."]
-
+I design hardware that has to survive real loads, from a drone fired out of a mortar tube to machined airbrakes on a high power rocket to fluid hardware for a LOX/kerosene engine. My work spans the full loop: requirements, CAD, analysis, manufacturing, test, and redesign when things break.
 <div align="center">
 
 | Project | Role | Focus | Status |
@@ -34,7 +33,7 @@ I design hardware that has to survive real loads, from a drone fired out of a mo
 
 ## Mortar-Launched UAV
 
-`Founder and Lead Engineer` · `January 2026 to present` · `[team size]`
+`Founder and Lead Engineer` · `January 2026 to present`
 
 A fixed-wing glider that survives a mortar launch, deploys its wings mid-air, and glides to a precise landing zone. The airframe is packaged inside a 50 mm launch tube, takes roughly 90 m/s of launch velocity in a fraction of a second, and is designed to a $150 per-unit cost.
 
@@ -54,30 +53,27 @@ A fixed-wing glider that survives a mortar launch, deploys its wings mid-air, an
 |:---|:---|
 | Launch tube diameter | 50 mm |
 | Launch velocity | ~90 m/s |
-| Launch acceleration | [X g] |
+| Launch acceleration | 22 g |
 | Range | 1.5 km |
 | Landing accuracy | 1 m² landing circle |
 | Payload | 0.5 kg |
 | Unit cost | $150 |
-| All-up mass | [X kg] |
+| All-up mass | 0.65 kg |
 
 ### Key Technical Decisions
 
-**Airframe material: PLA to carbon fiber composite.** The first-generation airframe was printed in PLA. Under real launch loads it failed by buckling, which showed that axial stiffness, not strength, was the limiting factor. I redesigned the main structure around a carbon fiber composite boom, roughly 50x stiffer than the PLA design for a small weight penalty. [Layup method: e.g. pultruded tube vs. wet layup, fiber orientation, wall thickness.] [How the stiffness improvement was calculated: e.g. E·I comparison or Euler buckling load.]
+**Airframe material: PLA to carbon fiber composite.** The first-generation airframe was printed in PLA. Under real launch loads it failed by buckling, which showed that axial stiffness, not strength, was the limiting factor. I redesigned the main structure around a carbon fiber composite boom, roughly 50x stiffer than the PLA design for a small weight penalty. I researched different manufacturing techniques to find carbon shaft desing specfically to ressut euler bucking during compression.**
 
-**Wing deployment.** The wings stow flat along the carbon boom to fit inside the 50 mm tube and swing out on a central pivot after the airframe leaves the barrel. Deployment is spring-loaded so it needs no power and no actuator. [Spring type and preload, deployment time, how the wings lock in place once deployed.]
+**Wing deployment.** The wings stow flat along the carbon boom to fit inside the 50 mm tube and swing out on a central pivot after the airframe leaves the barrel. Deployment is electronic so it needs power and onboard software. 50 gram micro servos specced with a stall force of 0.25 kgf*cm were used to actuate hte wings at apogee. enough stall margin was required for the servos to resist the drag on the wings. 
 
-**Rear fuselage hinge mechanism (my design).** The rear fuselage hub packages two control servos around a central socket for the carbon boom. [What the hinge does and when it actuates.] [The main challenge, e.g. surviving launch load while staying compact.] [Material and manufacturing method.] [How you tested it.]
+**Rear fuselage hinge mechanism (my design).** The rear fuselage hub packages two control servos around a central socket for the carbon boom. when the hinge rotates the slider/wing assembly rotates outward and translates towar the servo due to the slped geometry of the rear fuselage. precise sla 3d pringing was used to make the surfaces of thehinges mroe accurate. THe man challenge was desinging the system to fit in the compact diameter of 50mm, while holding the wings as close to the center as possible in order to maximize lift surface area. 
 
-**Aerodynamics and control.** Launch power, drag coefficient, lift, and control surfaces were all sized off the range and landing accuracy targets. [Airfoil choice and why.] [Wing span, chord, and aspect ratio.] [Target L/D or glide ratio.] Tail control surfaces are driven by [servo model].
-
-**Custom flight controller.** [Microcontroller, IMU, GPS.] [Control approach, e.g. PID on pitch and roll, waypoint guidance to the landing zone.] [Why custom instead of off-the-shelf, e.g. cost or fitting in the 50 mm envelope.]
+**Aerodynamics and control.** Launch power, drag coefficient, lift, and control surfaces were all sized off the range and landing accuracy targets.  The NACA 2412 airfoil was selected for its 12% thickness ratio, which fits a 3 mm spar within the wing at a 2" chord, its moderate camber (2% at 40% chord) for good lift at low angles of attack, and its well-documented performance at low Reynolds numbers
 
 ### Analysis and Testing
 
-- [CFD on the full airframe: software, what you were solving for, key result such as Cd or L/D]
-- [Structural analysis on the boom or hinge under launch load]
-- [Launch tests to date and what each one taught you]
+- we performed CFD via ANSYS Fluent on the entire airframe in launch and glide situations and we also simulated our control surfaces seperatley under a tightermesh to vlaidate their capabilities beofre manufacturing.  
+- structural analysis was performed via ANSYS mechanical to validate the main structural assembly ability to withstant 22gs at launch as well as the intricate hinge mechanism ability t deal with bending and vibrations during flight. 
 
 ### Results and Next Steps
 
@@ -108,25 +104,23 @@ I contributed to the design and manufacturing of the airbrakes module, owned the
 | Parameter | Target |
 |:---|:---|
 | Rocket class | L2 high power |
-| Target apogee | Programmable, [X ft] for this flight |
-| Airframe diameter | [X in] |
-| Max flap deployment | [X mm / X% added drag area] |
-| Deployment time | [X s] |
-| Module mass | [X g] |
+| Target apogee | Programmable, 7600ft for this flight |
+| Airframe diameter | 6in |
+| Max flap deployment | 40mm / 10% drag surface increase|
+| Deployment time | 1s |
+| Module mass | .5kg |
 
 ### Key Technical Decisions
 
-**Rotating plate drives four flaps together.** The flaps sit on pins that ride in curved slots in a central rotating plate. Turning the plate pushes all four flaps outward at the same rate, so a single actuator controls deployment and the flaps stay symmetric. Symmetric deployment matters because uneven drag would pitch the rocket off its flight path. [Actuator: servo or motor model, torque required.]
+**Rotating plate drives four flaps together.** The flaps sit on pins that ride in curved slots in a central rotating plate. Turning the plate pushes all four flaps outward at the same rate, so a single actuator controls deployment and the flaps stay symmetric. Symmetric deployment matters because uneven drag would pitch the rocket off its flight path. We gaunrateed this by working off a cam based desing where each of the airbrake pedals ar edeployed in unison.
 
-**Machined aluminum construction.** The module housing, plate, and flaps are CNC machined from [aluminum alloy, e.g. 6061-T6]. [Why machined over printed, e.g. flap loads at max velocity, tolerances in the slots.] [Who machined it and on what equipment.]
-
+**Machined aluminum construction.** The module housing, plate, and flaps are CNC machined from aluminum alloy. they are subjected to roughly 20 pounds of force so 3d printing was off the table. Aluminum was strong enough in a compact state which was necessary ebcuase there was only 3 inches of space to work with due to the size of the motor case. 
 **Integration into the airframe.** The module mounts below the recovery section on a bulkhead tied in with threaded rods, as shown in the section CAD. [How flight loads and ejection loads pass through the module.] [Slot sizing in the airframe tube.]
 
 **Servo housing (my design).** [How it mounts the servo to the module, how it reacts actuation torque, material and manufacturing method.] [Analysis you ran on it.]
 
-**Electronics bay (my design).** [What it holds, how boards are mounted and accessed, how it handles flight and ejection loads.] [Analysis you ran on it.]
+**Electronics bay (my design).** The E-Bay contains the pcbs and batterys necessary for flight and operation of the airbrakes. I cross referenced the spec sheetof the components and desinged a 3d printed sled that could attach directly to the structal threaded rods and contain all on board electronic ontrols.
 
-**Control logic.** [Sensors, e.g. barometer and IMU.] [How the controller predicts apogee and decides how far to deploy.]
 
 ### Analysis and Testing
 
