@@ -1,8 +1,8 @@
 # Henry Perda | Engineering Portfolio
 
-Engineering student at Northeastern University focused on flight hardware, composites, and design for extreme environments.
+Mechanical Engineering at Northeastern University 
 
-📧 [email] · 🔗 [LinkedIn URL] · 📄 [Resume link]
+ perda.h@northeastern.edu · [LinkedIn](https://www.linkedin.com/in/henry-perda-3b7b4a379) · [Resume](HENRY_PERDA_SPRING_2027)
 
 ---
 
