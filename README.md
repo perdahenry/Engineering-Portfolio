@@ -9,12 +9,14 @@ Engineering student at Northeastern University focused on flight hardware, compo
 ## Mortar-Launched UAV
 **Founder and Lead** · [dates]
 
-A drone that survives a mortar launch (90 m/s in a fraction of a second), deploys spring-loaded wings mid-air, and glides to a precise landing zone. Designed within a 50 mm tube, a $150 per-drone cost, and goals of 2 km range, a 2 m landing circle, and a 0.5 kg payload. After our PLA frame failed by buckling under real launch loads, I redesigned it in carbon fiber composite, roughly 50x stiffer for a small weight penalty. Also built a custom flight controller.
+A drone that survives a mortar launch (90 m/s in a fraction of a second), deploys spring-loaded wings mid-air, and glides to a precise landing zone. Designed within a 50 mm tube, a $150 per-drone cost, and goals of 1.5 km range, a 1m^2 landing circle, and a 0.5 kg payload. After our PLA frame failed by buckling under real launch loads, I redesigned it in carbon fiber composite, roughly 50x stiffer for a small weight penalty. Also built a custom flight controller.
 
-| | | |
-|:---:|:---:|:---:|
-| <img src="images/uav-real.jpg" width="260"> | <img src="images/uav-cad.png" width="260"> | <img src="images/uav-cfd.png" width="260"> |
-| *[Caption: built drone]* | *[Caption: CAD]* | *[Caption: CFD of full airframe]* |
+| | |
+|:---:|:---:|
+| <img src="images/uav-cad-stowed.png" width="350"> | <img src="images/uav-cad-deployed.png" width="350"> |
+| *CAD with wings stowed for launch* | *CAD with wings deployed* |
+| <img src="images/uav-hinge-cad.png" width="350"> | <img src="images/uav-hinge-real.jpg" width="350"> |
+| *[Caption: rear hinge mechanism CAD]* | *[Caption: rear hinge assembled]* |
 
 ---
 
@@ -23,46 +25,24 @@ A drone that survives a mortar launch (90 m/s in a fraction of a second), deploy
 
 Airbrakes module for an L2 rocket that actively controls drag to hit a target apogee of [X ft]. [One sentence on your contribution and result.]
 
-| | | |
-|:---:|:---:|:---:|
-| <img src="images/airbrakes-real.jpg" width="260"> | <img src="images/airbrakes-cad.png" width="260"> | <img src="images/airbrakes-cfd.png" width="260"> |
-| *[Caption: module]* | *[Caption: CAD]* | *[Caption: CFD of deployed flaps]* |
-
----
-
-## Seraphim Liquid Propulsion
-**Mechanical Design** · 2025 to present
-
-Designed the rocket's launchpad quick disconnect and components for the team's manufacturing process. [One sentence on key challenge or result.]
-
 | | |
 |:---:|:---:|
-| <img src="images/seraphim-real.jpg" width="350"> | <img src="images/seraphim-cad.png" width="350"> |
-| *[Caption: quick disconnect]* | *[Caption: CAD]* |
+| <img src="images/airbrakes-machined.jpg" width="350"> | <img src="images/airbrakes-in-rocket.jpg" width="350"> |
+| *Machined airbrakes module* | *Module installed in the airframe* |
+| <img src="images/airbrakes-mechanism-cad.png" width="350"> | <img src="images/airbrakes-section-cad.png" width="350"> |
+| *Airbrakes mechanism CAD* | *Airbrakes section overview CAD* |
 
 ---
 
-## NUaero Liquid Rocket Engine
+## NUaero Liquid Rocket Engine Quick Disconnect
 **[Role]** · [dates]
 
-Assembly of the test stand for a LOX/kerosene engine. [One sentence on your contribution.]
+Quick disconnect for the team's LOX/kerosene engine. [One sentence on your contribution and key challenge.]
 
 | | |
 |:---:|:---:|
-| <img src="images/lre-real.jpg" width="350"> | <img src="images/lre-cad.png" width="350"> |
-| *[Caption: test stand]* | *[Caption: CAD]* |
-
----
-
-## Baja SAE
-**Design and Manufacturing** · [dates]
-
-[One sentence on the parts or subsystem you designed and manufactured.]
-
-| | |
-|:---:|:---:|
-| <img src="images/baja-real.jpg" width="350"> | <img src="images/baja-cad.png" width="350"> |
-| *[Caption: part]* | *[Caption: CAD]* |
+| <img src="images/lre-qd-cad.png" width="350"> | <img src="images/lre-qd-fea.png" width="350"> |
+| *Quick disconnect assembly CAD* | *[Caption: FEA of component]* |
 
 ---
 
