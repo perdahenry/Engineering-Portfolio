@@ -2,7 +2,7 @@
 
 Mechanical Engineering at Northeastern University 
 
- perda.h@northeastern.edu · [LinkedIn](https://www.linkedin.com/in/henry-perda-3b7b4a379) · [Resume](HENRY_PERDA_SPRING_2027)
+ perda.h@northeastern.edu · [LinkedIn](https://www.linkedin.com/in/henry-perda-3b7b4a379) · [Resume](HENRY_PERDA_SPRING_2027.pdf)
 
 ---
 
