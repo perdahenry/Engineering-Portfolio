@@ -4,9 +4,9 @@
 
 # Henry Perda
 
-### Mechanical Engineering · Northeastern University
+### Northeastern University
 
-**Mechnical Engineering Major - Minor in Aerospace Engineering**
+**B.S. Mechanical Engineering · Minor in Aerospace Engineering**
 
 <a href="mailto:perda.h@northeastern.edu"><img src="https://img.shields.io/badge/Email-333333?style=for-the-badge&logo=gmail&logoColor=white"></a>
 <a href="https://www.linkedin.com/in/henry-perda-3b7b4a379"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a>
@@ -19,6 +19,7 @@
 ## About
 
 I design hardware that has to survive real loads, from a drone fired out of a mortar tube to machined airbrakes on a high power rocket to fluid hardware for a LOX/kerosene engine. My work spans the full loop: requirements, CAD, analysis, manufacturing, test, and redesign when things break.
+
 <div align="center">
 
 | Project | Role | Focus | Status |
@@ -62,22 +63,23 @@ A fixed-wing glider that survives a mortar launch, deploys its wings mid-air, an
 
 ### Key Technical Decisions
 
-**Airframe material: PLA to carbon fiber composite.** The first-generation airframe was printed in PLA. Under real launch loads it failed by buckling, which showed that axial stiffness, not strength, was the limiting factor. I redesigned the main structure around a carbon fiber composite boom, roughly 50x stiffer than the PLA design for a small weight penalty. I researched different manufacturing techniques to find carbon shaft desing specfically to ressut euler bucking during compression.**
+**Airframe material PLA to carbon fiber composite:** The first-generation airframe was printed in PLA. Under real launch loads it failed by buckling, which showed that axial stiffness, not strength, was the limiting factor. I redesigned the main structure around a carbon fiber composite boom, roughly 50x stiffer than the PLA design for a small weight penalty. I compared carbon tube manufacturing methods to select a shaft construction specifically suited to resisting Euler buckling under compressive launch loads.
 
-**Wing deployment.** The wings stow flat along the carbon boom to fit inside the 50 mm tube and swing out on a central pivot after the airframe leaves the barrel. Deployment is electronic so it needs power and onboard software. 50 gram micro servos specced with a stall force of 0.25 kgf*cm were used to actuate hte wings at apogee. enough stall margin was required for the servos to resist the drag on the wings. 
+**Wing deployment:** The wings stow flat along the carbon boom to fit inside the 50 mm tube and swing out on a central pivot at apogee. Deployment is actuated by two 2 gram micro servos triggered by onboard software. Each servo is rated for 0.25 kgf·cm of stall torque, which I sized to leave enough margin to hold the wings in position against aerodynamic drag. Two more servos of the same class drive the rear control surfaces, so the airframe carries four servos total within the 0.65 kg mass budget.
 
-**Rear fuselage hinge mechanism (my design).** The rear fuselage hub packages two control servos around a central socket for the carbon boom. when the hinge rotates the slider/wing assembly rotates outward and translates towar the servo due to the slped geometry of the rear fuselage. precise sla 3d pringing was used to make the surfaces of thehinges mroe accurate. THe man challenge was desinging the system to fit in the compact diameter of 50mm, while holding the wings as close to the center as possible in order to maximize lift surface area. 
+**Rear fuselage hinge mechanism (my design):** The rear fuselage hub packages two servos around a central socket for the carbon boom. As the hinge rotates, the slider and wing assembly swings outward and translates toward the servo, guided by the sloped geometry of the rear fuselage. The hinge surfaces were SLA printed for tighter dimensional accuracy. The main challenge was fitting the system inside the 50 mm diameter while holding the wings as close to the centerline as possible to maximize lifting surface area.
 
-**Aerodynamics and control.** Launch power, drag coefficient, lift, and control surfaces were all sized off the range and landing accuracy targets.  The NACA 2412 airfoil was selected for its 12% thickness ratio, which fits a 3 mm spar within the wing at a 2" chord, its moderate camber (2% at 40% chord) for good lift at low angles of attack, and its well-documented performance at low Reynolds numbers
+**Aerodynamics and control:** Launch power, drag coefficient, lift, and control surfaces were all sized off the range and landing accuracy targets. I selected the NACA 2412 airfoil for three reasons: its 12% thickness ratio fits a 3 mm spar inside a 2 in chord, its moderate camber (2% at 40% chord) gives good lift at low angles of attack, and its performance at low Reynolds numbers is well documented.
 
 ### Analysis and Testing
 
-- we performed CFD via ANSYS Fluent on the entire airframe in launch and glide situations and we also simulated our control surfaces seperatley under a tightermesh to vlaidate their capabilities beofre manufacturing.  
-- structural analysis was performed via ANSYS mechanical to validate the main structural assembly ability to withstant 22gs at launch as well as the intricate hinge mechanism ability t deal with bending and vibrations during flight. 
+- **CFD (ANSYS Fluent):** Simulated the full airframe in both launch and glide conditions, then ran the control surfaces separately on a finer mesh to validate their authority before manufacturing.
+- **Structural analysis (ANSYS Mechanical):** Validated the main structure against 22 g launch loads and checked the hinge mechanism for bending and vibration during flight.
+- **Flight testing:** Completed a low altitude test regimen to validate deployment and glide behavior.
 
-### Results and Next Steps
+### Status and Next Steps
 
-[Current status, latest test outcome, and what's next.]
+The airframe has completed low altitude testing and is preparing for its first maximum power launch at 200 psi.
 
 ---
 
@@ -104,33 +106,21 @@ I contributed to the design and manufacturing of the airbrakes module, owned the
 | Parameter | Target |
 |:---|:---|
 | Rocket class | L2 high power |
-| Target apogee | Programmable, 7600ft for this flight |
-| Airframe diameter | 6in |
-| Max flap deployment | 40mm / 10% drag surface increase|
-| Deployment time | 1s |
-| Module mass | .5kg |
+| Target apogee | Programmable, 7,600 ft for this flight |
+| Airframe diameter | 6 in |
+| Max flap deployment | 40 mm, 10% increase in drag area |
+| Deployment time | 1 s |
+| Module mass | 0.5 kg |
 
 ### Key Technical Decisions
 
-**Rotating plate drives four flaps together.** The flaps sit on pins that ride in curved slots in a central rotating plate. Turning the plate pushes all four flaps outward at the same rate, so a single actuator controls deployment and the flaps stay symmetric. Symmetric deployment matters because uneven drag would pitch the rocket off its flight path. We gaunrateed this by working off a cam based desing where each of the airbrake pedals ar edeployed in unison.
+**Cam-driven plate deploys all four flaps in unison:** The flaps sit on pins that ride in curved slots in a central rotating plate. Turning the plate pushes all four flaps outward at the same rate, so a single actuator controls deployment and the flaps are mechanically guaranteed to stay symmetric. That matters because uneven drag would pitch the rocket off its flight path.
 
-**Machined aluminum construction.** The module housing, plate, and flaps are CNC machined from aluminum alloy. they are subjected to roughly 20 pounds of force so 3d printing was off the table. Aluminum was strong enough in a compact state which was necessary ebcuase there was only 3 inches of space to work with due to the size of the motor case. 
-**Integration into the airframe.** The module mounts below the recovery section on a bulkhead tied in with threaded rods, as shown in the section CAD. [How flight loads and ejection loads pass through the module.] [Slot sizing in the airframe tube.]
+**Machined aluminum construction:** The module housing, plate, and flaps are CNC machined from aluminum. Each flap sees roughly 20 lbf at deployment, which ruled out 3D printing. Aluminum also kept the module strong in a compact package, which was essential because the motor case left only 3 in of axial space to work with.
 
-**Servo housing (my design).** [How it mounts the servo to the module, how it reacts actuation torque, material and manufacturing method.] [Analysis you ran on it.]
+**Integration into the airframe:** The module mounts below the recovery section on a bulkhead tied in with threaded rods, as shown in the section CAD.
 
-**Electronics bay (my design).** The E-Bay contains the pcbs and batterys necessary for flight and operation of the airbrakes. I cross referenced the spec sheetof the components and desinged a 3d printed sled that could attach directly to the structal threaded rods and contain all on board electronic ontrols.
-
-
-### Analysis and Testing
-
-- [Flap load estimate at max deployment velocity]
-- [Bench test of the deployment mechanism]
-- [Flight results: predicted vs. actual apogee]
-
-### Results and Next Steps
-
-[Outcome and what you'd change.]
+**Electronics bay (my design):** The e-bay holds the PCBs and batteries that power the flight computer and the airbrakes. Working from the component spec sheets, I designed a 3D printed sled that mounts directly to the structural threaded rods and houses all onboard electronics.
 
 ---
 
@@ -142,9 +132,8 @@ A remotely actuated quick disconnect for the nitrogen fill line on the team's li
 
 <div align="center">
 
-| <img src="images/lre-qd-cad.png" width="400"> | <img src="images/lre-qd-fea.png" width="400"> |
-|:---:|:---:|
-| *Quick disconnect assembly, CAD* | *FEA of [component]* |
+| <img src="images/lre-qd-cad.png" width="400"> |
+| *Quick disconnect assembly, CAD* |
 
 </div>
 
@@ -193,27 +182,16 @@ Purchased hardware comes to roughly $295, with the actuator, shafts, and N2-rate
 
 **Polyurethane impact pads.** Analysis showed the sled striking the shaft collars exceeded the allowable axial load. Adding 1/4 in Shore 40A polyurethane pads slows the impact enough to bring it back under that limit.
 
-### Analysis and Testing
+### Test Plan
 
-- **FEA:** [Component analyzed, load case, peak stress, factor of safety]
-- **Impact load:** [Sled impact force with and without the pads, and the allowable axial load]
-- **100-cycle unpressurized test (REQ-002, REQ-003):** Planned
-- **Pressurized cycle test (REQ-001):** Planned, [X cycles at X psi]
+- **100-cycle unpressurized test (REQ-002, REQ-003):** Qualify release reliability and confirm zero wear.
+- **Pressurized cycle test (REQ-001):** Confirm release under line pressure.
 
 ### Status
 
 In detailed design with CAD near complete. Next steps are prototype build, the 100-cycle qualification test, and pressurized release testing.
 
 ---
-
-## Outreach
-
-**Roxbury Robotics · Volunteer**
-
-Afterschool program introducing elementary students to robotics, giving kids with fewer resources access to engineering.
-
----
-
 ## Skills
 
 <div align="center">
