@@ -53,7 +53,7 @@ A fixed-wing glider that survives a mortar launch, deploys its wings mid-air, an
 | Parameter | Target |
 |:---|:---|
 | Launch tube diameter | 50 mm |
-| Launch velocity | ~90 m/s |
+| Launch velocity | ~25 m/s |
 | Launch acceleration | 22 g |
 | Range | 1.5 km |
 | Landing accuracy | 1 m² landing circle |
