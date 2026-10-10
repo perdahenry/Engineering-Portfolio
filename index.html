@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henry Perda | Engineering Portfolio</title>
+<meta name="description" content="Mechanical engineering portfolio of Henry Perda, Northeastern University: mortar-launched UAV, rocket airbrakes, and a liquid rocket quick disconnect.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F6F7;
+    --sheet: #FFFFFF;
+    --ink: #13233A;
+    --graphite: #4D5966;
+    --rule: #D5DCE2;
+    --grid: #E6EBEF;
+    --accent: #1E5C8A;
+    --display: "Archivo", "Arial Narrow", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  /* Top bar */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(244,246,247,.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 16px; }
+  .bar .mark { font-family: var(--display); font-weight: 800; font-size: 17px; color: var(--ink); text-decoration: none; letter-spacing: -.01em; }
+  .bar nav { display: flex; gap: 22px; }
+  .bar nav a { color: var(--graphite); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .bar nav a:hover { color: var(--ink); }
+
+  /* Hero on drafting grid */
+  .hero {
+    border-bottom: 1px solid var(--rule);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .hero .wrap { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: end; padding-top: 72px; padding-bottom: 64px; }
+  .portrait { position: relative; }
+  .portrait img { width: 220px; height: 220px; object-fit: cover; border: 1px solid var(--ink); background: var(--sheet); }
+  /* dimension line under the portrait */
+  .dim { margin-top: 10px; display: flex; align-items: center; gap: 8px; color: var(--graphite); font-size: 12px; }
+  .dim::before, .dim::after { content: ""; flex: 1; height: 1px; background: var(--graphite); }
+  .hero h1 {
+    font-family: var(--display); font-weight: 800; font-stretch: 112%;
+    font-size: clamp(48px, 8vw, 96px); line-height: .95; letter-spacing: -.03em; margin: 0 0 18px;
+  }
+  .hero .degree { font-size: 19px; margin: 0 0 6px; }
+  .hero .school { color: var(--graphite); margin: 0 0 26px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a {
+    display: inline-block; padding: 9px 16px; border: 1px solid var(--ink);
+    color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px; background: var(--sheet);
+  }
+  .links a.primary { background: var(--ink); color: var(--sheet); }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+  .links a.primary:hover { background: var(--accent); color: var(--sheet); }
+
+  /* About + index */
+  .about .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; padding-top: 64px; padding-bottom: 64px; }
+  .about p { margin: 0; font-size: 20px; line-height: 1.55; max-width: 34ch; }
+  .index { border-top: 2px solid var(--ink); }
+  .index a { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink); }
+  .index a:hover .t { color: var(--accent); }
+  .index .t { font-family: var(--display); font-weight: 600; font-size: 20px; }
+  .index .s { color: var(--graphite); font-size: 14px; text-align: right; align-self: center; }
+  .index .f { color: var(--graphite); font-size: 15px; grid-column: 1 / -1; }
+
+  /* Projects */
+  .project { border-top: 1px solid var(--rule); padding: 80px 0; }
+  .project:nth-of-type(even) { background: var(--sheet); }
+  .phead { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; margin-bottom: 28px; }
+  .project h2 {
+    font-family: var(--display); font-weight: 800; font-stretch: 112%;
+    font-size: clamp(32px, 4.5vw, 52px); line-height: 1; letter-spacing: -.02em; margin: 0;
+  }
+  .meta { color: var(--graphite); font-size: 15px; text-align: right; line-height: 1.5; }
+  .meta strong { color: var(--ink); font-weight: 600; display: block; }
+  .lede { font-size: 19px; max-width: 70ch; margin: 0 0 14px; }
+  .lede + p { max-width: 70ch; margin: 0 0 36px; color: var(--graphite); }
+
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 48px; }
+  .gallery.single { grid-template-columns: minmax(0, 760px); justify-content: center; }
+  figure { margin: 0; }
+  figure .frame { background: var(--sheet); border: 1px solid var(--rule); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .project:nth-of-type(even) figure .frame { background: var(--paper); }
+  figure .frame img { width: 100%; height: 100%; object-fit: contain; }
+  figure .frame.photo img { object-fit: cover; }
+  figcaption { font-size: 14px; color: var(--graphite); margin-top: 8px; }
+
+  .body { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: start; }
+  .specs { position: sticky; top: 82px; }
+  .specs h3, .detail h3 { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 0 0 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .specs td { padding: 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .specs tr:first-child td { border-top: 2px solid var(--ink); }
+  .specs td:first-child { color: var(--graphite); padding-right: 12px; }
+  .specs td:last-child { text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  .detail { max-width: 68ch; }
+  .detail h3 { margin-top: 40px; }
+  .detail h3:first-child { margin-top: 0; }
+  .decision { margin: 0 0 22px; }
+  .decision h4 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
+  .decision h4 .own { font-weight: 400; color: var(--accent); font-size: 14px; margin-left: 6px; }
+  .decision p { margin: 0; }
+  .detail ul, .detail ol { padding-left: 20px; margin: 0; }
+  .detail li { margin-bottom: 10px; }
+  .detail li strong { font-weight: 600; }
+
+  .req td, .req th { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .req th { font-weight: 600; border-bottom: 2px solid var(--ink); font-size: 14px; }
+  .req td:first-child { white-space: nowrap; color: var(--graphite); font-variant-numeric: tabular-nums; }
+  .tablewrap { overflow-x: auto; margin-bottom: 8px; }
+  .note { color: var(--graphite); font-size: 15px; margin-top: 10px; }
+
+  /* Outreach + skills */
+  .closing { border-top: 1px solid var(--rule); padding: 72px 0 96px; }
+  .closing .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .closing h2 { font-family: var(--display); font-weight: 800; font-size: 28px; margin: 0 0 14px; }
+  .closing p { margin: 0; max-width: 46ch; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .skills li { border: 1px solid var(--rule); background: var(--sheet); padding: 6px 12px; font-size: 15px; }
+
+  footer { border-top: 1px solid var(--rule); padding: 24px 0 40px; color: var(--graphite); font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .bar nav { display: none; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 28px; padding-top: 48px; }
+    .portrait img { width: 160px; height: 160px; }
+    .portrait .dim { width: 160px; }
+    .about .wrap, .body, .closing .wrap { grid-template-columns: 1fr; gap: 36px; }
+    .specs { position: static; }
+    .phead { grid-template-columns: 1fr; }
+    .meta { text-align: left; }
+    .gallery { grid-template-columns: 1fr; }
+    .project { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">Henry Perda</a>
+    <nav aria-label="Projects">
+      <a href="#uav">UAV</a>
+      <a href="#airbrakes">Airbrakes</a>
+      <a href="#qd">Quick disconnect</a>
+      <a href="HENRY_PERDA_SPRING_2027.pdf">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="portrait">
+      <img src="images/headshot.png" alt="Henry Perda">
+    </div>
+    <div>
+      <h1>Henry Perda</h1>
+      <p class="degree">B.S. Mechanical Engineering, Minor in Aerospace Engineering</p>
+      <p class="school">Northeastern University</p>
+      <div class="links">
+        <a class="primary" href="HENRY_PERDA_SPRING_2027.pdf">View resume</a>
+        <a href="mailto:perda.h@northeastern.edu">perda.h@northeastern.edu</a>
+        <a href="https://www.linkedin.com/in/henry-perda-3b7b4a379">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <p>I design hardware that has to survive real loads, from a drone fired out of a mortar tube to machined airbrakes on a high power rocket to fluid hardware for a LOX/kerosene engine. My work spans the full loop: requirements, CAD, analysis, manufacturing, test, and redesign when things break.</p>
+    <div class="index">
+      <a href="#uav"><span class="t">Mortar-Launched UAV</span><span class="s">Active</span><span class="f">Founder and Lead Engineer. Composite airframe, deployable wings, flight controller.</span></a>
+      <a href="#airbrakes"><span class="t">NUaero Airbrakes</span><span class="s">Completed</span><span class="f">Engineer. Active drag control, servo housing, electronics bay.</span></a>
+      <a href="#qd"><span class="t">NUaero LRE Quick Disconnect</span><span class="s">Detailed design</span><span class="f">Structures Engineer. Remote N2 fill line disconnect, mechanism design.</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UAV ============ -->
+<section class="project" id="uav">
+  <div class="wrap">
+    <div class="phead">
+      <h2>Mortar-Launched UAV</h2>
+      <div class="meta"><strong>Founder and Lead Engineer</strong>January 2026 to present</div>
+    </div>
+    <p class="lede">A fixed-wing glider that survives a mortar launch, deploys its wings mid-air, and glides to a precise landing zone.</p>
+    <p>The airframe is packaged inside a 50 mm launch tube, takes roughly 90 m/s of launch velocity in a fraction of a second, and is designed to a $150 per-unit cost.</p>
+
+    <div class="gallery">
+      <figure><div class="frame"><img src="images/uav-cad-stowed.png" alt="UAV CAD with wings stowed"></div><figcaption>Stowed configuration for launch</figcaption></figure>
+      <figure><div class="frame"><img src="images/uav-cad-deployed.png" alt="UAV CAD with wings deployed"></div><figcaption>Wings deployed for glide</figcaption></figure>
+      <figure><div class="frame"><img src="images/uav-hinge-cad.png" alt="Rear fuselage hinge mechanism CAD"></div><figcaption>Rear fuselage hinge mechanism, CAD</figcaption></figure>
+      <figure><div class="frame photo"><img src="images/uav-hinge-real.jpg" alt="Assembled rear fuselage hinge mechanism"></div><figcaption>Rear fuselage hinge mechanism, assembled</figcaption></figure>
+    </div>
+
+    <div class="body">
+      <aside class="specs">
+        <h3>Requirements</h3>
+        <table>
+          <tr><td>Launch tube diameter</td><td>50 mm</td></tr>
+          <tr><td>Launch velocity</td><td>~90 m/s</td></tr>
+          <tr><td>Launch acceleration</td><td>22 g</td></tr>
+          <tr><td>Range</td><td>1.5 km</td></tr>
+          <tr><td>Landing accuracy</td><td>1 m² circle</td></tr>
+          <tr><td>Payload</td><td>0.5 kg</td></tr>
+          <tr><td>Unit cost</td><td>$150</td></tr>
+          <tr><td>All-up mass</td><td>0.65 kg</td></tr>
+        </table>
+      </aside>
+      <div class="detail">
+        <h3>Key technical decisions</h3>
+        <div class="decision">
+          <h4>Airframe material: PLA to carbon fiber composite</h4>
+          <p>The first-generation airframe was printed in PLA. Under real launch loads it failed by buckling, which showed that axial stiffness, not strength, was the limiting factor. I redesigned the main structure around a carbon fiber composite boom, roughly 50x stiffer than the PLA design for a small weight penalty. I compared carbon tube manufacturing methods to select a shaft construction specifically suited to resisting Euler buckling under compressive launch loads.</p>
+        </div>
+        <div class="decision">
+          <h4>Wing deployment</h4>
+          <p>The wings stow flat along the carbon boom to fit inside the 50 mm tube and swing out on a central pivot at apogee. Deployment is actuated by two 2 gram micro servos triggered by onboard software. Each servo is rated for 0.25 kgf·cm of stall torque, which I sized to leave enough margin to hold the wings in position against aerodynamic drag. Two more servos of the same class drive the rear control surfaces, so the airframe carries four servos total within the 0.65 kg mass budget.</p>
+        </div>
+        <div class="decision">
+          <h4>Rear fuselage hinge mechanism <span class="own">My design</span></h4>
+          <p>The rear fuselage hub packages two servos around a central socket for the carbon boom. As the hinge rotates, the slider and wing assembly swings outward and translates toward the servo, guided by the sloped geometry of the rear fuselage. The hinge surfaces were SLA printed for tighter dimensional accuracy. The main challenge was fitting the system inside the 50 mm diameter while holding the wings as close to the centerline as possible to maximize lifting surface area.</p>
+        </div>
+        <div class="decision">
+          <h4>Aerodynamics and control</h4>
+          <p>Launch power, drag coefficient, lift, and control surfaces were all sized off the range and landing accuracy targets. I selected the NACA 2412 airfoil for three reasons: its 12% thickness ratio fits a 3 mm spar inside a 2 in chord, its moderate camber (2% at 40% chord) gives good lift at low angles of attack, and its performance at low Reynolds numbers is well documented.</p>
+        </div>
+
+        <h3>Analysis and testing</h3>
+        <ul>
+          <li><strong>CFD (ANSYS Fluent).</strong> Simulated the full airframe in both launch and glide conditions, then ran the control surfaces separately on a finer mesh to validate their authority before manufacturing.</li>
+          <li><strong>Structural analysis (ANSYS Mechanical).</strong> Validated the main structure against 22 g launch loads and checked the hinge mechanism for bending and vibration during flight.</li>
+          <li><strong>Flight testing.</strong> Completed a low altitude test regimen to validate deployment and glide behavior.</li>
+        </ul>
+
+        <h3>Status and next steps</h3>
+        <p>The airframe has completed low altitude testing and is preparing for its first maximum power launch at 200 psi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AIRBRAKES ============ -->
+<section class="project" id="airbrakes">
+  <div class="wrap">
+    <div class="phead">
+      <h2>NUaero Airbrakes</h2>
+      <div class="meta"><strong>Engineer, NUaero</strong>January 2026 to July 2026</div>
+    </div>
+    <p class="lede">An active airbrakes module for an L2 high power rocket. Four flaps deploy radially through the airframe to add drag during coast, letting the rocket hit a programmable target apogee instead of overshooting it.</p>
+    <p>I contributed to the design and manufacturing of the airbrakes module, owned the design and analysis of the servo housing and the electronics bay, and took part in much of the rocket's assembly.</p>
+
+    <div class="gallery">
+      <figure><div class="frame photo"><img src="images/airbrakes-machined.jpg" alt="Machined aluminum airbrakes module"></div><figcaption>Machined airbrakes module</figcaption></figure>
+      <figure><div class="frame photo"><img src="images/airbrakes-in-rocket.jpg" alt="Airbrakes module installed in the airframe"></div><figcaption>Module installed in the airframe</figcaption></figure>
+      <figure><div class="frame"><img src="images/airbrakes-mechanism-cad.png" alt="Airbrakes flap mechanism CAD"></div><figcaption>Flap mechanism, CAD</figcaption></figure>
+      <figure><div class="frame"><img src="images/airbrakes-section-cad.png" alt="Airbrakes section overview CAD"></div><figcaption>Airbrakes section overview, CAD</figcaption></figure>
+    </div>
+
+    <div class="body">
+      <aside class="specs">
+        <h3>Requirements</h3>
+        <table>
+          <tr><td>Rocket class</td><td>L2 high power</td></tr>
+          <tr><td>Target apogee</td><td>Programmable, 7,600 ft this flight</td></tr>
+          <tr><td>Airframe diameter</td><td>6 in</td></tr>
+          <tr><td>Max flap deployment</td><td>40 mm</td></tr>
+          <tr><td>Added drag area</td><td>10%</td></tr>
+          <tr><td>Deployment time</td><td>1 s</td></tr>
+          <tr><td>Module mass</td><td>0.5 kg</td></tr>
+        </table>
+      </aside>
+      <div class="detail">
+        <h3>Key technical decisions</h3>
+        <div class="decision">
+          <h4>Cam-driven plate deploys all four flaps in unison</h4>
+          <p>The flaps sit on pins that ride in curved slots in a central rotating plate. Turning the plate pushes all four flaps outward at the same rate, so a single actuator controls deployment and the flaps are mechanically guaranteed to stay symmetric. That matters because uneven drag would pitch the rocket off its flight path.</p>
+        </div>
+        <div class="decision">
+          <h4>Machined aluminum construction</h4>
+          <p>The module housing, plate, and flaps are CNC machined from aluminum. Each flap sees roughly 20 lbf at deployment, which ruled out 3D printing. Aluminum also kept the module strong in a compact package, which was essential because the motor case left only 3 in of axial space to work with.</p>
+        </div>
+        <div class="decision">
+          <h4>Integration into the airframe</h4>
+          <p>The module mounts below the recovery section on a bulkhead tied in with threaded rods, as shown in the section CAD.</p>
+        </div>
+        <div class="decision">
+          <h4>Electronics bay <span class="own">My design</span></h4>
+          <p>The e-bay holds the PCBs and batteries that power the flight computer and the airbrakes. Working from the component spec sheets, I designed a 3D printed sled that mounts directly to the structural threaded rods and houses all onboard electronics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QD ============ -->
+<section class="project" id="qd">
+  <div class="wrap">
+    <div class="phead">
+      <h2>NUaero Liquid Rocket Engine Quick Disconnect</h2>
+      <div class="meta"><strong>Structures Engineer, NUaero LRE</strong>September 2026 to present</div>
+    </div>
+    <p class="lede">A remotely actuated quick disconnect for the nitrogen fill line on the team's liquid rocket.</p>
+    <p>During loading, the fill line keeps the propellant tanks pressurized to compensate for cryogenic boiloff. Disconnecting that line by hand would put team members next to a pressurized vehicle, so the QD releases it on remote command seconds before liftoff and lets the whole team stay outside the hazard zone from pressurization through disconnect.</p>
+
+    <div class="gallery single">
+      <figure><div class="frame"><img src="images/lre-qd-cad.png" alt="Quick disconnect assembly CAD"></div><figcaption>Quick disconnect assembly, CAD</figcaption></figure>
+    </div>
+
+    <div class="body">
+      <aside class="specs">
+        <h3>Key hardware</h3>
+        <table>
+          <tr><td>Couplings</td><td>Parker SPHN4 / SPHC4</td></tr>
+          <tr><td>Actuator</td><td>PA-MC1, 1 in, 17 lbf</td></tr>
+          <tr><td>Guide shafts</td><td>3/8 in 1050 steel</td></tr>
+          <tr><td>Bearings</td><td>841 bronze sleeve</td></tr>
+          <tr><td>Springs</td><td>Music wire extension</td></tr>
+          <tr><td>Impact pads</td><td>Shore 40A polyurethane</td></tr>
+          <tr><td>Hardware cost</td><td>~$295</td></tr>
+        </table>
+        <p class="note">Static base 3D printed, actuator adapter waterjet cut, sleeve pusher machined.</p>
+      </aside>
+      <div class="detail">
+        <h3>Requirements</h3>
+        <p style="margin:0 0 14px">The QD is a single point of failure for vehicle fill and disconnect: if the hose doesn't release, the launch doesn't happen. The requirements are built around reliability.</p>
+        <div class="tablewrap">
+          <table class="req">
+            <tr><th>ID</th><th>Requirement</th><th>Verification</th></tr>
+            <tr><td>REQ-001</td><td>Disconnect the N2 fill line on remote command after pressurization, with no personnel at the vehicle</td><td>Test</td></tr>
+            <tr><td>REQ-002</td><td>Complete 100 connect/disconnect cycles with zero failures</td><td>Test</td></tr>
+            <tr><td>REQ-003</td><td>Show no visible damage or plastic deformation after 100 cycles</td><td>Inspection</td></tr>
+          </table>
+        </div>
+
+        <h3>How it works</h3>
+        <p style="margin:0 0 14px">The design is built around off-the-shelf Parker pneumatic couplings. Instead of designing a custom seal, the mechanism only has to do one thing: pull back the connector's release sleeve.</p>
+        <ol>
+          <li>The static base is secured to the ground with the linear actuator set to its centered position.</li>
+          <li>The fill hose attaches to the slider, the extension springs are stretched, and the ground and air sides are mated.</li>
+          <li>On remote command, the actuator extends 1/2 in and drives the sleeve pusher, which retracts the connector sleeve and releases the coupling.</li>
+          <li>The springs pull the groundside sled back 1 in, where it stops against polyurethane-padded shaft collars.</li>
+          <li>The actuator retracts 1 in, the airside valve clears, and the QD falls away from the vehicle.</li>
+        </ol>
+
+        <h3>Key technical decisions</h3>
+        <div class="decision">
+          <h4>Extension springs over compression springs</h4>
+          <p>Separation can't rely on line pressure, because the QD also has to release when the hose is unpressurized. Springs guarantee the groundside pulls away every time, and extension springs give a more predictable force across the range of positions the sled travels through.</p>
+        </div>
+        <div class="decision">
+          <h4>Linear motion shafts instead of a dual sled</h4>
+          <p>Moving to guided shafts lets the groundside connector travel with the entire actuated segment before release, then slide back cleanly afterward, using one moving assembly instead of two.</p>
+        </div>
+        <div class="decision">
+          <h4>Spreading the shafts apart <span class="own">My call</span></h4>
+          <p>The first layout didn't leave enough clearance between the flexible hose and the shaft collars. I widened the shaft spacing so the hose can move freely through the full release stroke.</p>
+        </div>
+        <div class="decision">
+          <h4>Polyurethane impact pads</h4>
+          <p>Analysis showed the sled striking the shaft collars exceeded the allowable axial load. Adding 1/4 in Shore 40A polyurethane pads slows the impact enough to bring it back under that limit.</p>
+        </div>
+
+        <h3>Test plan and status</h3>
+        <ul>
+          <li><strong>100-cycle unpressurized test (REQ-002, REQ-003).</strong> Qualify release reliability and confirm zero wear.</li>
+          <li><strong>Pressurized cycle test (REQ-001).</strong> Confirm release under line pressure.</li>
+        </ul>
+        <p class="note">In detailed design with CAD near complete. Next steps are prototype build, the 100-cycle qualification test, and pressurized release testing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div>
+      <h2>Outreach</h2>
+      <p><strong>Roxbury Robotics, Volunteer.</strong> An afterschool program introducing elementary students to robotics, giving kids with fewer resources access to engineering.</p>
+    </div>
+    <div>
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>SolidWorks</li><li>ANSYS Fluent (CFD)</li><li>ANSYS Mechanical (FEA)</li><li>Composite layup</li><li>Machining</li><li>SLA and FDM 3D printing</li><li>Python</li><li>Flight controllers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Henry Perda · Northeastern University · <a href="mailto:perda.h@northeastern.edu">perda.h@northeastern.edu</a></div>
+</footer>
+
+</body>
+</html>
