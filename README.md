@@ -17,16 +17,15 @@
 ---
 
 ## About
-
-I design hardware that has to survive real loads, from a drone fired out of a mortar tube to machined airbrakes on a high power rocket to fluid hardware for a LOX/kerosene engine. My work spans the full loop: requirements, CAD, analysis, manufacturing, test, and redesign when things break.
+I design hardware to solve problems across a range of applications, and I enjoy owning a project from start to finish: generating a solution, testing it, improving it, and delivering on project goals. My experience covers the full engineering cycle, from CAD design and FEA/CFD simulation to manufacturing and testing real hardware. Through Baja SAE and NUaero, I’ve also built the teamwork and communication skills that carry through every stage of that process. In my free time, I enjoy surfing, running, and golf. 
 
 <div align="center">
 
 | Project | Role | Focus | Status |
 |:---|:---|:---|:---|
-| [Mortar-Launched UAV](#mortar-launched-uav) | Founder and Lead Engineer | Composite airframe, deployable wings, flight controller | Active |
+| [Mortar-Launched UAV](#mortar-launched-uav) | Founder and Lead Engineer | Composite airframe, deployable wings, fuselage assembly | Active |
 | [NUaero Airbrakes](#nuaero-airbrakes) | Engineer | Active drag control, servo housing, electronics bay | Completed |
-| [NUaero LRE Quick Disconnect](#nuaero-liquid-rocket-engine-quick-disconnect) | Structures Engineer | Remote N2 fill line disconnect, mechanism design | Detailed design |
+| [NUaero LRE Quick Disconnect](#nuaero-liquid-rocket-engine-quick-disconnect) | Structures Engineer | Remote N2 fill line disconnect, groundside system engineering, mechanism design | Detailed design |
 
 </div>
 
